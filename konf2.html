@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Konfirmasi Usia - 18+</title>
+    <link rel="icon" href="images/favicon.ico" type="image/x-icon">
+    <style>
+        body {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #121212;
+            color: #e0e0e0;
+            font-family: Arial, sans-serif;
+            text-align: center;
+            overflow: hidden;
+        }
+
+        .age-verification-container {
+            max-width: 500px;
+            width: 90%;
+            padding: 30px;
+            background-color: #1e1e1e;
+            border: 2px solid red;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+            box-sizing: border-box;
+            position: relative;
+            transition: transform 0.3s ease;
+        }
+
+        .logo {
+            position: absolute;
+            top: -30px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: #1e1e1e;
+            border: 2px solid red;
+            border-radius: 50%;
+            padding: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+        }
+
+        .logo img {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+        }
+
+        h1 {
+            color: red;
+            font-size: 26px;
+            margin-bottom: 20px;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        p {
+            margin-bottom: 30px;
+            font-size: 16px;
+            line-height: 1.5;
+            color: #b0b0b0;
+        }
+
+        .button {
+            display: inline-block;
+            padding: 12px 20px;
+            font-size: 16px;
+            font-weight: bold;
+            color: #fff;
+            background-color: red;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            margin: 8px;
+            text-decoration: none;
+            transition: background-color 0.3s ease, transform 0.2s;
+            width: calc(100% - 16px);
+            max-width: 260px;
+            box-shadow: 0 4px 8px rgba(255, 0, 0, 0.2);
+        }
+
+        .button:hover {
+            background-color: #ff4d4d;
+            transform: translateY(-3px);
+        }
+
+        .button:active {
+            transform: translateY(1px);
+            box-shadow: 0 2px 6px rgba(255, 0, 0, 0.2);
+        }
+
+        .button-gray {
+            background-color: #555;
+            box-shadow: 0 4px 8px rgba(100, 100, 100, 0.2);
+        }
+
+        .button-gray:hover {
+            background-color: #777;
+        }
+
+        @media (max-width: 480px) {
+            h1 {
+                font-size: 22px;
+            }
+
+            p {
+                font-size: 14px;
+            }
+
+            .button {
+                font-size: 14px;
+                padding: 10px 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="age-verification-container">
+        <div class="logo">
+            <img src="images/logo.png" alt="Logo">
+        </div>
+        <h1>PERINGATAN! 18+ Konten Dewasa</h1>
+        <p>Situs ini berisi konten dewasa yang mungkin mengganggu. Anda harus berusia minimal 18 tahun untuk melanjutkan.</p>
+        <a href="./incident" class="button">Konfirmasi</a>
+        <a href="https://www.google.com/search?q=upin+ipin&oq=upin" class="button button-gray">Saya Belum Cukup Umur</a>
+    </div>
+</body>
+</html>
