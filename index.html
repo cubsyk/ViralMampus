@@ -42,7 +42,23 @@
             width: 110px;
             height: auto;
         }
-
+          
+       .logo2 { /* stlh christmas hapus ini */
+            width: 180px;
+            height: auto;
+        }
+    
+        .overlay-image { /* stlh christmas hapus ini */
+            position: fixed; /* Tetap di posisi layar meskipun di-scroll */
+            top: 0;
+            left: 0;
+            width: 100%; /* Menutupi seluruh lebar layar */
+            height: 100%; /* Menutupi seluruh tinggi layar */
+            z-index: 9999; /* Pastikan berada di atas elemen lain */
+            pointer-events: none; /* Agar tidak menghalangi interaksi dengan elemen lain */
+            opacity: 0.8; /* Opsional: menyesuaikan transparansi */
+         }
+    
         nav {
             display: flex;
             text-align: center;
@@ -371,7 +387,9 @@
 </head>
 <body>
     <header>
-        <img src="images/logo.gif" alt="Logo" class="logo"> 
+        <img src="images/snow.gif" alt="Logo" class="overlay-image"> <!-- stlh christmas hpus ini -->
+        <img src="images/logo.gif" alt="Logo" class="logo">
+        <img src="images/logochrist.gif" alt="Logo" class="logo2"> <!-- stlh christmas hpus ini -->
         <div class="hamburger" id="hamburger" onclick="toggleNav(this)">
             <div class="bar"></div>
             <div class="bar"></div>
