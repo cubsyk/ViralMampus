@@ -239,6 +239,15 @@
             .hamburger {
                 display: flex; /* Show hamburger icon */
             }
+            .hamburger.active .bar:nth-child(1) {
+            transform: rotate(-45deg) translate(-5px, 6px); /* Top bar */
+        }
+        .hamburger.active .bar:nth-child(2) {
+            opacity: 0; /* Middle bar disappears */
+        }
+        .hamburger.active .bar:nth-child(3) {
+            transform: rotate(45deg) translate(-5px, -6px); /* Bottom bar */
+        }
 
             .video-item {
                 flex-basis: 100%; /* Full width on small screens */
