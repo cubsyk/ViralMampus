@@ -11,7 +11,6 @@
         html {
             scroll-behavior: smooth; /* Menambahkan efek scroll halus */
         }
-        
         body {
             font-family: Arial, sans-serif;
             margin: 0;
@@ -20,7 +19,6 @@
             color: #e0e0e0;
             overflow-x: hidden; /* Prevent horizontal overflow */
         }
-
         header {
             display: flex;
             align-items: center;
@@ -32,23 +30,19 @@
             border-bottom: 2px solid red;
             transition: background-color 0.3s ease; /* Smooth transition for background */
         }
-
         header:hover {
             background-color: #3a3a3a; /* Darker header on hover */
         }
-
         .logo {
             width: 130px;
             height: auto;
             margin-left: -15px;
-        }
-
+        }   
         nav {
             display: flex;
             text-align: center;
             gap: 20px; /* Space between nav items */
         }
-
         nav a {
             color: red;
             text-decoration: none;
@@ -56,11 +50,9 @@
             position: relative; /* For the underline effect */
             transition: color 0.3s ease; /* Smooth color transition */
         }
-
         nav a:hover {
             color: #fff; /* Change color on hover */
         }
-
         nav a::after {
             content: '';
             position: absolute;
@@ -71,18 +63,15 @@
             background-color: #fff;
             transition: width 0.3s ease, left 0.3s ease;
         }
-
         nav a:hover::after {
             width: 100%; /* Full width on hover */
             left: 0; /* Move to the left */
         }
-
         .hamburger {
             display: none; /* Hidden by default */
             flex-direction: column;
             cursor: pointer;
         }
-
         .bar {
             height: 3px;
             width: 25px;
@@ -90,12 +79,10 @@
             margin: 3px 0;
             transition: 0.4s;
         }
-
         h1 {
             margin: 0;
             font-size: 30px;
         }
-
         .disclaimer {
             background-color: red;
             color: #fff;
@@ -105,18 +92,15 @@
             margin-bottom: 20px;
             animation: fadeIn 0.5s; /* Fade in animation */
         }
-
         @keyframes fadeIn {
             from { opacity: 0; }
             to { opacity: 1; }
         }
-
         main {
             padding: 20px;
             max-width: 900px;
             margin: 0 auto;
         }
-
         .video-container {
             display: flex;
             flex-wrap: wrap;
@@ -125,22 +109,17 @@
             max-width: 800px; /* Mengurangi lebar container */
             margin: 0 auto; /* Memastikan kontainer berada di tengah */
         }
-
         .video-item {
             background-color: #222;
             padding: 15px; /* Mengurangi padding untuk mengecilkan ukuran */
             border-radius: 8px;
             flex: 1;
             text-align: center;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
             min-width: 200px; /* Mengurangi ukuran minimum video item */
+            display: flex;
+            flex-direction: column; /* Menata gambar, deskripsi, dan tombol secara vertikal */
+            justify-content: space-between; /* Memberikan jarak antar elemen */
         }
-
-        .video-item:hover {
-            transform: scale(1.05); /* Slightly enlarge on hover */
-            box-shadow: 0 4px 15px rgba(255, 0, 0, 0.3); /* Shadow effect */
-        }
-
         .video-item img {
             width: 100%;          /* Membuat gambar mengisi lebar kontainer secara penuh */
             height: 200px;        /* Sesuaikan tinggi agar gambar lebih proporsional */
@@ -148,21 +127,17 @@
             border-radius: 8px;
             transition: transform 0.3s ease;
         }
-
         .video-item img:hover {
             transform: scale(1.03); /* Zoom image on hover */
         }
-
         .video-item h3 {
             color: red;
             font-size: 18px; /* Mengurangi ukuran font judul */
             transition: color 0.3s ease;
         }
-
         .video-item p {
-            margin: 10px 0;
+            margin: 0px 0;
         }
-
         .video-item a {
             color: red;
             text-decoration: none;
@@ -172,11 +147,9 @@
             transition: color 0.3s ease;
             position: relative;
         }
-
         .video-item a:hover {
             color: #fff;
         }
-
         .video-item a::after {
             content: '';
             position: absolute;
@@ -187,12 +160,10 @@
             background-color: #fff;
             transition: width 0.3s ease, left 0.3s ease;
         }
-
         .video-item a:hover::after {
             width: 100%;
             left: 0;
         }
-
         footer {
             background-color: #1e1e1e;
             color: #fff;
@@ -201,31 +172,52 @@
             border-top: 2px solid red;
             margin-top: 20px;
         }
-
+        /* Styling untuk konten tambahan yang akan ditampilkan setelah klik */
+        .additional-content {
+            margin-top: 20px;
+            padding: 0;
+            border-radius: 8px;
+        }
+        .additional-content a {
+            margin-bottom: 10px;
+        }
+        .read-more {
+            background-color: red; /* Warna dasar tombol */
+            color: white; /* Warna teks */
+            border: none;
+            padding: 10px 20px;
+            font-size: 12px;
+            border-radius: 8px; /* Membuat tombol memiliki sudut melengkung */
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Tambahkan bayangan */
+        }
+        .read-more:hover {
+            background-color: rgb(105, 54, 54); /* Warna tombol saat hover */
+            box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2); /* Bayangan lebih tebal saat hover */
+        }
         /* Responsiveness */
         @media (max-width: 768px) {
-            nav {
-                display: none; /* Hide nav by default */
-                flex-direction: column; /* Stack nav items */
-                position: absolute; /* Positioning */
-                top: 70px; /* Below the header */
-                right: 0; /* Align to the right */
-                background-color: #1e1e1e; /* Background color */
-                border-radius: 5px; /* Rounded corners */
-                z-index: 1000; /* Above other elements */
-                width: 200px; /* Width of the menu */
-                padding: 10px; /* Padding for the menu */
-                box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5); /* Shadow for dropdown */
-            }
-
-            nav.active {
-                display: flex; /* Show nav when active */
-            }
-
-            .hamburger {
-                display: flex; /* Show hamburger icon */
-            }
-            .hamburger.active .bar:nth-child(1) {
+        nav {
+            display: none; /* Hide nav by default */
+            flex-direction: column; /* Stack nav items */
+            position: absolute; /* Positioning */
+            top: 70px; /* Below the header */
+            right: 0; /* Align to the right */
+            background-color: #1e1e1e; /* Background color */
+            border-radius: 5px; /* Rounded corners */
+            z-index: 1000; /* Above other elements */
+            width: 200px; /* Width of the menu */
+            padding: 10px; /* Padding for the menu */
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5); /* Shadow for dropdown */
+        }
+        nav.active {
+            display: flex; /* Show nav when active */
+        }
+        .hamburger {
+            display: flex; /* Show hamburger icon */
+        }          
+        .hamburger.active .bar:nth-child(1) {
             transform: rotate(-45deg) translate(-5px, 6px); /* Top bar */
         }
         .hamburger.active .bar:nth-child(2) {
@@ -234,15 +226,22 @@
         .hamburger.active .bar:nth-child(3) {
             transform: rotate(45deg) translate(-5px, -6px); /* Bottom bar */
         }
-
-            .video-item {
-                flex-basis: 100%; /* Full width on small screens */
-            }
-
-            .video-item h3 {
-                font-size: 16px; /* Smaller font size on small screens */
-            }
-       }
+        .video-item {
+            flex-basis: 100%; /* Full width on small screens */
+        }
+        .video-item h3 {
+            font-size: 16px; /* Smaller font size on small screens */
+        }
+        /* Styling untuk konten tambahan yang akan ditampilkan setelah klik */
+        .additional-content {
+            margin-top: 20px;
+            padding: 0;
+            border-radius: 8px;
+        }
+        .additional-content a {
+            margin-bottom: 10px;
+        }
+    }
     </style>
     <script type='text/javascript' src='//pl25031541.profitablecpmrate.com/a5/2d/30/a52d30327145f654412e1b57fcb72726.js'></script>
 </head>
@@ -267,84 +266,134 @@
         <p>Lihat juga: <a href="https://www.profitablecpmrate.com/e9j55vq9zr?key=5a5e5b7137e32bd8a7b8bcfa4148a25b" style="color: blue;">video terbaru</a></p>
         <section class="video-container">
             <div class="video-item">
-               <img src="images/inc13.jpeg" alt="thumb">
-               <h3>Pria Tersedot ke Dalam Mesin</h3>
-               <p>Tidak ada info lebih lanjut</p>
-               <a href="https://videy.co/v?id=ew87ZfSf1" target="_blank">Tonton Sekarang</a>
+                <img src="images/inc13.jpeg" alt="thumb">
+                <h3>Pria Tersedot ke Dalam Mesin</h3>
+                <div class="additional-content" style="display: none;">
+                    <p>Tidak ada info lebih lanjut</p>
+                    <a href="https://videy.co/v?id=ew87ZfSf1" target="_blank">Lihat Video Disini</a>
+                </div>
+                <button class="read-more">Baca Selengkapnya</button>
             </div>
+            
             <div class="video-item">
                 <img src="images/inc12.jpeg" alt="thumb">
                 <h3>Wanita Tertabrak Traktor</h3>
-                <p>Tidak ada deskripsi.</p>
-                <a href="https://videy.co/v?id=21sYD1DR1" target="_blank">Tonton Sekarang</a>
+                <div class="additional-content" style="display: none;">
+                    <p>Tidak ada deskripsi.</p>
+                    <a href="https://videy.co/v?id=21sYD1DR1" target="_blank">Lihat Video Disini</a>
+                </div>
+                <button class="read-more">Baca Selengkapnya</button>
             </div>
+            
             <div class="video-item">
                 <img src="images/inc11.jpeg" alt="thumb">
                 <h3>Dua Wanita Tewas Tertimpa Tembok</h3>
-                <p>Kronologi dikomentar Instagram.</p>
-                <a href="https://videy.co/v?id=0nG7uNdP1" target="_blank">Tonton Sekarang</a>
+                <div class="additional-content" style="display: none;">
+                    <p>Kronologi dikomentar Instagram.</p>
+                    <a href="https://videy.co/v?id=0nG7uNdP1" target="_blank">Lihat Video Disini</a>
+                </div>
+                <button class="read-more">Baca Selengkapnya</button>
             </div>
+            
             <div class="video-item">
                 <img src="images/inc10.jpeg" alt="Pekerja Tertarik Ke Dalam Mesin Pemutar Kawat Di Turki">
                 <h3>Pekerja Tertarik Ke Dalam Mesin Pemutar Kawat Di Turki</h3>
-                <p>Kronologi di komentar instagram.</p>
-                <a href="https://videy.co/v?id=mJ1PsdGA1" target="_blank">Tonton Sekarang</a>
+                <div class="additional-content" style="display: none;">
+                    <p>Kronologi di komentar instagram.</p>
+                    <a href="https://videy.co/v?id=mJ1PsdGA1" target="_blank">Lihat Video Disini</a>
+                </div>
+                <button class="read-more">Baca Selengkapnya</button>
             </div>
+            
             <div class="video-item">
                 <img src="images/inc9.jpeg" alt="Video 2">
                 <h3>Pengendara Pepeda Motor Terlindas Truk</h3>
-                <p>Tidak ada deskripsi.</p>
-                <a href="https://videy.co/v?id=JxhQdLaF1" target="_blank">Tonton Sekarang</a>
+                <div class="additional-content" style="display: none;">
+                    <p>Tidak ada deskripsi.</p>
+                    <a href="https://videy.co/v?id=JxhQdLaF1" target="_blank">Lihat Video Disini</a>
+                </div>
+                <button class="read-more">Baca Selengkapnya</button>
             </div>
+            
             <div class="video-item">
                 <img src="images/inc8.jpeg" alt="Video 2">
                 <h3>Seorang Kakek Terlindas Bus</h3>
-                <p>Meongg.</p>
-                <a href="https://videy.co/v?id=gKj8DvUW1" target="_blank">Tonton Sekarang</a>
+                <div class="additional-content" style="display: none;">
+                    <p>Meongg.</p>
+                    <a href="https://videy.co/v?id=gKj8DvUW1" target="_blank">Lihat Video Disini</a>
+                </div>
+                <button class="read-more">Baca Selengkapnya</button>
             </div>
+            
             <div class="video-item">
                 <img src="images/inc7.jpeg" alt="Video 2">
                 <h3>Tertimpa Alat Gym</h3>
-                <p>Deskripsi di komen instagram.</p>
-                <a href="https://videy.co/v?id=oavunKI71" target="_blank">Tonton Sekarang</a>
+                <div class="additional-content" style="display: none;">
+                    <p>Deskripsi di komen instagram.</p>
+                    <a href="https://videy.co/v?id=oavunKI71" target="_blank">Lihat Video Disini</a>
+                </div>
+                <button class="read-more">Baca Selengkapnya</button>
             </div>
+            
             <div class="video-item">
                 <img src="images/inc6.jpeg" alt="Video 2">
                 <h3>Pekerja Tertimpa Forklift</h3>
-                <p>Pekerja di Negara China tewas tertimpa forklift saat hendak lewat disampingnya.</p>
-                <a href="https://videy.co/v?id=hwmfLkCu1" target="_blank">Tonton Sekarang</a>
+                <div class="additional-content" style="display: none;">
+                    <p>Pekerja di Negara China tewas tertimpa forklift saat hendak lewat disampingnya.</p>
+                    <a href="https://videy.co/v?id=hwmfLkCu1" target="_blank">Lihat Video Disini</a>
+                </div>
+                <button class="read-more">Baca Selengkapnya</button>
             </div>
+            
             <div class="video-item">
                 <img src="images/inc5.jpeg" alt="Video 2">
                 <h3>Tertimpa Traktor</h3>
-                <p>Influencer muda itu tewas seketika ketika traktornya tiba-tiba terlipat dua dan secara mengerikan menimpanya.</p>
-                <a href="https://pomf2.lain.la/f/868sakkg.mp4" target="_blank">Tonton Sekarang</a>
+                <div class="additional-content" style="display: none;">
+                    <p>Influencer muda itu tewas seketika ketika traktornya tiba-tiba terlipat dua dan secara mengerikan menimpanya.</p>
+                    <a href="https://pomf2.lain.la/f/868sakkg.mp4" target="_blank">Lihat Video Disini</a>
+                </div>
+                <button class="read-more">Baca Selengkapnya</button>
             </div>
+            
             <div class="video-item">
                 <img src="images/inc4.jpeg" alt="Video 2">
                 <h3>Pria Tewas Terkena Batu</h3>
-                <p>Seorang pria meninggal dunia akibat ia terkena batu.</p>
-                <a href="https://videy.co/v?id=iQ7SZaYI1" target="_blank">Tonton Sekarang</a>
+                <div class="additional-content" style="display: none;">
+                    <p>Seorang pria meninggal dunia akibat ia terkena batu.</p>
+                    <a href="https://videy.co/v?id=iQ7SZaYI1" target="_blank">Lihat Video Disini</a>
+                </div>
+                <button class="read-more">Baca Selengkapnya</button>
             </div>
+            
             <div class="video-item">
                 <img src="images/inc3.jpeg" alt="Video 2">
                 <h3>3 Pemuda Terkena Ledakan Petasan</h3>
-                <p>Peristiwa memilukan terjadi di Desa Semingkir, Pemalang, Jawa Tengah, menjelang Idul Fitri. Ahmad Muhtohar, 18 tahun, warga setempat, tewas dalam ledakan petasan. Sekelompok remaja membawa petasan rakitan raksasa ke Bendungan Semingkir untuk merayakan berakhirnya Ramadan, namun beberapa saat kemudian, ledakan dahsyat mengguncang daerah tersebut.</p>
-                <a href="https://pastelink.net/j1afvkti" target="_blank">Tonton Sekarang</a>
+                <div class="additional-content" style="display: none;">
+                    <p>Peristiwa memilukan terjadi di Desa Semingkir, Pemalang, Jawa Tengah, menjelang Idul Fitri. Ahmad Muhtohar, 18 tahun, warga setempat, tewas dalam ledakan petasan. Sekelompok remaja membawa petasan rakitan raksasa ke Bendungan Semingkir untuk merayakan berakhirnya Ramadan, namun beberapa saat kemudian, ledakan dahsyat mengguncang daerah tersebut.</p>
+                    <a href="https://pastelink.net/j1afvkti" target="_blank">Lihat Video Disini</a>
+                </div>
+                <button class="read-more">Baca Selengkapnya</button>
             </div>
+            
             <div class="video-item">
                 <img src="images/inc2.jpeg" alt="Video 2">
                 <h3>Badan Terlindas Kereta</h3>
-                <p>Tidak ada deskripsi.</p>
-                <a href="https://videy.co/v?id=8Ow4mAgm1" target="_blank">Tonton Sekarang</a>
+                <div class="additional-content" style="display: none;">
+                    <p>Tidak ada deskripsi.</p>
+                    <a href="https://videy.co/v?id=8Ow4mAgm1" target="_blank">Lihat Video Disini</a>
+                </div>
+                <button class="read-more">Baca Selengkapnya</button>
             </div>
+            
             <div class="video-item">
                 <img src="images/inc1.jpeg" alt="Video 1">
                 <h3>Ke-Press Saat Kerja</h3>
-                <p>Pekerja pabrik ter-press saat sedang bekerja, korban meninggal ditempat.</p>
-                <a href="https://videy.co/v?id=gIMjScoA1" target="_blank">Tonton Sekarang</a>
-            </div>
-            <!-- Tambahkan lebih banyak video item sesuai kebutuhan -->
+                <div class="additional-content" style="display: none;">
+                    <p>Pekerja pabrik ter-press saat sedang bekerja, korban meninggal ditempat.</p>
+                    <a href="https://videy.co/v?id=gIMjScoA1" target="_blank">Lihat Video Disini</a>
+                </div>
+                <button class="read-more">Baca Selengkapnya</button>
+            </div>            
         </section>
     </main>
 
@@ -369,6 +418,21 @@
                 nav.classList.remove('active');
                 hamburger.classList.remove('active');
             }
+        });
+    </script>
+    <script>
+        document.querySelectorAll('.read-more').forEach(button => {
+        button.addEventListener('click', function() {
+            const additionalContent = this.previousElementSibling; // Konten tambahan (div)
+        // Toggle tampilan konten tambahan
+            if (additionalContent.style.display === 'none' || additionalContent.style.display === '') {
+                additionalContent.style.display = 'block';
+                this.textContent = 'Sembunyikan'; // Ubah teks tombol
+                } else {
+                    additionalContent.style.display = 'none';
+                    this.textContent = 'Baca Selengkapnya'; // Ubah teks tombol
+                }
+            });
         });
     </script>
     <script type="text/javascript" src="https://storage.sociabuzz.com/storage/js/main/buttononwebsite/index.min.js"></script><script>sbBoW.draw("goreplix","RHVrdW5nIGthbWk","position-bottom-right","#ff0000","#FFFFFF")</script>

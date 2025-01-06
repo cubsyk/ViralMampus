@@ -115,12 +115,10 @@
             border-radius: 8px;
             flex: 1;
             text-align: center;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
             min-width: 200px; /* Mengurangi ukuran minimum video item */
-        }
-        .video-item:hover {
-            transform: scale(1.05); /* Slightly enlarge on hover */
-            box-shadow: 0 4px 15px rgba(255, 0, 0, 0.3); /* Shadow effect */
+            display: flex;
+            flex-direction: column; /* Menata gambar, deskripsi, dan tombol secara vertikal */
+            justify-content: space-between; /* Memberikan jarak antar elemen */
         }
         .video-item img {
             width: 100%;          /* Membuat gambar mengisi lebar kontainer secara penuh */
@@ -138,7 +136,7 @@
             transition: color 0.3s ease;
         }
         .video-item p {
-            margin: 10px 0;
+            margin: 0px 0;
         }
         .video-item a {
             color: red;
@@ -174,19 +172,43 @@
             border-top: 2px solid red;
             margin-top: 20px;
         }
+        /* Styling untuk konten tambahan yang akan ditampilkan setelah klik */
+        .additional-content {
+            margin-top: 20px;
+            padding: 0;
+            border-radius: 8px;
+        }
+        .additional-content a {
+            margin-bottom: 10px;
+        }
+        .read-more {
+            background-color: red; /* Warna dasar tombol */
+            color: white; /* Warna teks */
+            border: none;
+            padding: 10px 20px;
+            font-size: 12px;
+            border-radius: 8px; /* Membuat tombol memiliki sudut melengkung */
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Tambahkan bayangan */
+        }
+        .read-more:hover {
+            background-color: rgb(105, 54, 54); /* Warna tombol saat hover */
+            box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2); /* Bayangan lebih tebal saat hover */
+        }
         /* Responsiveness */
         @media (max-width: 768px) {
-            nav {
-                display: none; /* Hide nav by default */
-                flex-direction: column; /* Stack nav items */
-                position: absolute; /* Positioning */
-                top: 70px; /* Below the header */
-                right: 0; /* Align to the right */
-                background-color: #1e1e1e; /* Background color */
-                border-radius: 5px; /* Rounded corners */
-                z-index: 1000; /* Above other elements */
-                width: 200px; /* Width of the menu */
-                padding: 10px; /* Padding for the menu */
+        nav {
+            display: none; /* Hide nav by default */
+            flex-direction: column; /* Stack nav items */
+            position: absolute; /* Positioning */
+            top: 70px; /* Below the header */
+            right: 0; /* Align to the right */
+            background-color: #1e1e1e; /* Background color */
+            border-radius: 5px; /* Rounded corners */
+            z-index: 1000; /* Above other elements */
+            width: 200px; /* Width of the menu */
+            padding: 10px; /* Padding for the menu */
             box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5); /* Shadow for dropdown */
         }
         nav.active {
@@ -205,12 +227,21 @@
             transform: rotate(45deg) translate(-5px, -6px); /* Bottom bar */
         }
         .video-item {
-                flex-basis: 100%; /* Full width on small screens */
-         }
-         .video-item h3 {
-                font-size: 16px; /* Smaller font size on small screens */
-         }
-      }
+            flex-basis: 100%; /* Full width on small screens */
+        }
+        .video-item h3 {
+            font-size: 16px; /* Smaller font size on small screens */
+        }
+        /* Styling untuk konten tambahan yang akan ditampilkan setelah klik */
+        .additional-content {
+            margin-top: 20px;
+            padding: 0;
+            border-radius: 8px;
+        }
+        .additional-content a {
+            margin-bottom: 10px;
+        }
+    }
     </style>
     <script type='text/javascript' src='//pl25031541.profitablecpmrate.com/a5/2d/30/a52d30327145f654412e1b57fcb72726.js'></script>
 </head>
@@ -235,204 +266,331 @@
         <p>Lihat juga: <a href="https://www.profitablecpmrate.com/e9j55vq9zr?key=5a5e5b7137e32bd8a7b8bcfa4148a25b" style="color: blue;">video terbaru</a></p>
         <section class="video-container">
             <div class="video-item">
-               <img src="images/dark33.jpeg" alt="thumb">
-               <h3>Dibalik Layar Video Eksekusi Tahanan</h3>
-               <p>Tidak ada deskripsi.</p>
-               <a href="https://videy.co/v?id=J35y739i1" target="_blank">Tonton Sekarang</a>
+                <img src="images/dark33.jpeg" alt="thumb">
+                <h3>Dibalik Layar Video Eksekusi Tahanan</h3>
+                <div class="additional-content" style="display: none;">
+                    <p>Tidak ada deskripsi.</p>
+                    <a href="https://videy.co/v?id=J35y739i1" target="_blank">Lihat Video Disini</a>
+                </div>               
+                <button class="read-more">Baca Selengkapnya</button>
             </div>
             <div class="video-item">
-               <img src="images/dark32.jpeg" alt="thumb">
-               <h3>Familia Michoacana Eksekusi Anggota CJNG</h3>
-               <p>Tidak ada info lebih lanjut.</p>
-               <a href="https://videy.co/v?id=TNRLBwtB1" target="_blank">Tonton Sekarang</a>
+                <img src="images/dark32.jpeg" alt="thumb">
+                <h3>Familia Michoacana Eksekusi Anggota CJNG</h3>
+                <div class="additional-content" style="display: none;">
+                    <p>Tidak ada info lebih lanjut.</p>
+                    <a href="https://videy.co/v?id=TNRLBwtB1" target="_blank">Lihat Video Disini</a>
+                </div>               
+                <button class="read-more">Baca Selengkapnya</button>
             </div>
+            
             <div class="video-item">
-               <img src="images/dark31.jpeg" alt="thumb">
-               <h3>Pembunuhan Politisi dari Ceará Brazil</h3>
-               <p>Dor dor dor dor</p>
-               <a href="https://videy.co/v?id=upaHkRzU1" target="_blank">Tonton Sekarang</a>
+                <img src="images/dark31.jpeg" alt="thumb">
+                <h3>Pembunuhan Politisi dari Ceará Brazil</h3>
+                <div class="additional-content" style="display: none;">
+                    <p>Dor dor dor dor</p>
+                    <a href="https://videy.co/v?id=upaHkRzU1" target="_blank">Lihat Video Disini</a>
+                </div>               
+                <button class="read-more">Baca Selengkapnya</button>
             </div>
+            
             <div class="video-item">
-               <img src="images/dark30.jpeg" alt="Penusukan Brutal">
-               <h3>Penusukan Brutal</h3>
-               <p>Tidak ada deskripsi.</p>
-               <a href="https://videy.co/v?id=SrCYA8L81" target="_blank">Tonton Sekarang</a>
+                <img src="images/dark30.jpeg" alt="thumb">
+                <h3>Penusukan Brutal</h3>
+                <div class="additional-content" style="display: none;">
+                    <p>Tidak ada deskripsi.</p>
+                    <a href="https://videy.co/v?id=SrCYA8L81" target="_blank">Lihat Video Disini</a>
+                </div>               
+                <button class="read-more">Baca Selengkapnya</button>
             </div>
+            
             <div class="video-item">
-               <img src="images/dark29.jpeg" alt="Pencuri Membunuh Supir Taksi">
-               <h3>Pencuri Membunuh Supir Taksi</h3>
-               <p>Tidak ada deskripsi.</p>
-               <a href="https://videy.co/v?id=lOO1xAlR1" target="_blank">Tonton Sekarang</a>
+                <img src="images/dark29.jpeg" alt="thumb">
+                <h3>Pencuri Membunuh Supir Taksi</h3>
+                <div class="additional-content" style="display: none;">
+                    <p>Tidak ada deskripsi.</p>
+                    <a href="https://videy.co/v?id=lOO1xAlR1" target="_blank">Lihat Video Disini</a>
+                </div>               
+                <button class="read-more">Baca Selengkapnya</button>
             </div>
+            
             <div class="video-item">
-                <img src="images/dark28.jpeg" alt="Video 8">
+                <img src="images/dark28.jpeg" alt="thumb">
                 <h3>Eksekusi Tenggorokan Brutal</h3>
-                <p>Tidak ada info lebih lanjut sebab dan dinegara mana kejadian itu terjadi.</p>
-                <a href="https://videy.co/v?id=YH9mebg71" target="_blank">Tonton Sekarang</a>
+                <div class="additional-content" style="display: none;">
+                    <p>Tidak ada info lebih lanjut sebab dan dinegara mana kejadian itu terjadi.</p>
+                    <a href="https://videy.co/v?id=YH9mebg71" target="_blank">Lihat Video Disini</a>
+                </div>               
+                <button class="read-more">Baca Selengkapnya</button>
             </div>
+            
             <div class="video-item">
-                <img src="images/dark27.jpeg" alt="Video 8">
+                <img src="images/dark27.jpeg" alt="thumb">
                 <h3>Eksekusi Baru ISIS Termasuk Tentara Anak yang Mengeksekusi Tahanan</h3>
-                <p>Tidak ada deskripsi.</p>
-                <a href="https://videy.co/v?id=DUw2lnyo1" target="_blank">Tonton Sekarang</a>
+                <div class="additional-content" style="display: none;">
+                    <p>Tidak ada deskripsi.</p>
+                    <a href="https://videy.co/v?id=DUw2lnyo1" target="_blank">Lihat Video Disini</a>
+                </div>               
+                <button class="read-more">Baca Selengkapnya</button>
             </div>
+            
             <div class="video-item">
-                <img src="images/dark26.jpeg" alt="Video 8">
+                <img src="images/dark26.jpeg" alt="thumb">
                 <h3>Kompilasi Pertarungan Go-Pro Dari Seluruh Dunia</h3>
-                <p>Tidak ada deskripsi.</p>
-                <a href="https://pomf2.lain.la/f/voxtj8q.mp4" target="_blank">Tonton Sekarang</a>
+                <div class="additional-content" style="display: none;">
+                    <p>Tidak ada deskripsi.</p>
+                    <a href="https://pomf2.lain.la/f/voxtj8q.mp4" target="_blank">Lihat Video Disini</a>
+                </div>               
+                <button class="read-more">Baca Selengkapnya</button>
             </div>
+            
             <div class="video-item">
-                <img src="images/dark25.jpeg" alt="Video 8">
+                <img src="images/dark25.jpeg" alt="thumb">
                 <h3>Kartel Narkoba Meksiko Memenggal Dua Tahanan dengan Gergaji Mesin</h3>
-                <p>🎭</p>
-                <a href="https://videy.co/v?id=7Tpxxslw1" target="_blank">Tonton Sekarang</a>
+                <div class="additional-content" style="display: none;">
+                    <p>🎭</p>
+                    <a href="https://videy.co/v?id=7Tpxxslw1" target="_blank">Lihat Video Disini</a>
+                </div>               
+                <button class="read-more">Baca Selengkapnya</button>
             </div>
+            
             <div class="video-item">
-                <img src="images/dark24.jpeg" alt="Video 8">
+                <img src="images/dark24.jpeg" alt="thumb">
                 <h3>Gadis Ditikam Sampai Mati Oleh Mantan Kekasihnya</h3>
-                <p>Pembunuhan dengan pisau di tengah hubungan seks di Lima-Peru</p>
-                <a href="https://videy.co/v?id=jZ9FlcSw1" target="_blank">Tonton Sekarang</a>
+                <div class="additional-content" style="display: none;">
+                    <p>Pembunuhan dengan pisau di tengah hubungan seks di Lima-Peru</p>
+                    <a href="https://videy.co/v?id=jZ9FlcSw1" target="_blank">Lihat Video Disini</a>
+                </div>               
+                <button class="read-more">Baca Selengkapnya</button>
             </div>
+            
             <div class="video-item">
-                <img src="images/dark23.jpeg" alt="Video 8">
+                <img src="images/dark23.jpeg" alt="thumb">
                 <h3>Eksekusi Penggal Kepala (ISIS)</h3>
-                <p>Tidak ada deskripsi.</p>
-                <a href="https://videy.co/v?id=FfTtnu8Y1" target="_blank">Tonton Sekarang</a>
+                <div class="additional-content" style="display: none;">
+                    <p>Tidak ada deskripsi.</p>
+                    <a href="https://videy.co/v?id=FfTtnu8Y1" target="_blank">Lihat Video Disini</a>
+                </div>               
+                <button class="read-more">Baca Selengkapnya</button>
             </div>
+            
             <div class="video-item">
-                <img src="images/dark22.jpeg" alt="Video 8">
+                <img src="images/dark22.jpeg" alt="thumb">
                 <h3>Massa Siksa Pria yang Diduga Pemicu Kebakaran Hutan</h3>
-                <p>Tidak ada deskripsi.</p>
-                <a href="https://videy.co/v?id=AlkvnVKY1" target="_blank">Tonton Sekarang</a>
+                <div class="additional-content" style="display: none;">
+                    <p>Tidak ada deskripsi.</p>
+                    <a href="https://videy.co/v?id=AlkvnVKY1" target="_blank">Lihat Video Disini</a>
+                </div>               
+                <button class="read-more">Baca Selengkapnya</button>
             </div>
             <div class="video-item">
-                <img src="images/dark21.jpeg" alt="Video 8">
-                <h3>Eksekusi Tahanan Oleh Is*s</h3>
-                <p>Tidak ada deskripsi.</p>
-                <a href="https://videy.co/v?id=eSjAKqfb1" target="_blank">Tonton Sekarang</a>
+                <img src="images/dark21.jpeg" alt="thumb">
+                <h3>Penyiksaan Mematikan di Penjara</h3>
+                <div class="additional-content" style="display: none;">
+                    <p>Tidak ada deskripsi lebih lanjut.</p>
+                    <a href="https://videy.co/v?id=9eQsJbnW1" target="_blank">Lihat Video Disini</a>
+                </div>               
+                <button class="read-more">Baca Selengkapnya</button>
+            </div>
+            
+            <div class="video-item">
+                <img src="images/dark20.jpeg" alt="thumb">
+                <h3>Eksekusi Tahanan Tentara</h3>
+                <div class="additional-content" style="display: none;">
+                    <p>Eksekusi brutal oleh tentara dari kelompok yang terorganisir.</p>
+                    <a href="https://videy.co/v?id=PlWvABRl1" target="_blank">Lihat Video Disini</a>
+                </div>               
+                <button class="read-more">Baca Selengkapnya</button>
+            </div>
+            
+            <div class="video-item">
+                <img src="images/dark19.jpeg" alt="thumb">
+                <h3>Perang Kartel Narkoba</h3>
+                <div class="additional-content" style="display: none;">
+                    <p>Perang sengit antara kartel narkoba di Meksiko.</p>
+                    <a href="https://videy.co/v?id=Gg8vS9LO1" target="_blank">Lihat Video Disini</a>
+                </div>               
+                <button class="read-more">Baca Selengkapnya</button>
+            </div>
+            
+            <div class="video-item">
+                <img src="images/dark18.jpeg" alt="thumb">
+                <h3>Pembunuhan di Jalanan</h3>
+                <div class="additional-content" style="display: none;">
+                    <p>Seorang pria dibunuh di jalanan secara terbuka.</p>
+                    <a href="https://videy.co/v?id=z5bNXsls1" target="_blank">Lihat Video Disini</a>
+                </div>               
+                <button class="read-more">Baca Selengkapnya</button>
+            </div>
+            
+            <div class="video-item">
+                <img src="images/dark17.jpeg" alt="thumb">
+                <h3>Tragedi Penculikan dan Pembunuhan</h3>
+                <div class="additional-content" style="display: none;">
+                    <p>Penculikan dan pembunuhan yang dilakukan oleh kelompok bersenjata.</p>
+                    <a href="https://videy.co/v?id=nLhTy5P51" target="_blank">Lihat Video Disini</a>
+                </div>               
+                <button class="read-more">Baca Selengkapnya</button>
+            </div>
+            
+            <div class="video-item">
+                <img src="images/dark16.jpeg" alt="thumb">
+                <h3>Penyiksaan di Tahanan</h3>
+                <div class="additional-content" style="display: none;">
+                    <p>Penyiksaan berat terhadap tahanan di penjara.</p>
+                    <a href="https://videy.co/v?id=r2JgR6s31" target="_blank">Lihat Video Disini</a>
+                </div>               
+                <button class="read-more">Baca Selengkapnya</button>
+            </div>
+            
+            <div class="video-item">
+                <img src="images/dark15.jpeg" alt="thumb">
+                <h3>Pembunuhan Berdarah di Brasil</h3>
+                <div class="additional-content" style="display: none;">
+                    <p>Pembunuhan berdarah yang terjadi di Brasil di hadapan publik.</p>
+                    <a href="https://videy.co/v?id=w3Zm0kFz1" target="_blank">Lihat Video Disini</a>
+                </div>               
+                <button class="read-more">Baca Selengkapnya</button>
+            </div>
+            
+            <div class="video-item">
+                <img src="images/dark14.jpeg" alt="thumb">
+                <h3>Penyiksaan oleh Mafia</h3>
+                <div class="additional-content" style="display: none;">
+                    <p>Para anggota mafia melakukan penyiksaan terhadap korban mereka.</p>
+                    <a href="https://videy.co/v?id=dptmF8bl1" target="_blank">Lihat Video Disini</a>
+                </div>               
+                <button class="read-more">Baca Selengkapnya</button>
+            </div>
+            
+            <div class="video-item">
+                <img src="images/dark13.jpeg" alt="thumb">
+                <h3>Eksekusi oleh Tentara</h3>
+                <div class="additional-content" style="display: none;">
+                    <p>Eksekusi yang dilakukan oleh tentara di tengah kekacauan perang.</p>
+                    <a href="https://videy.co/v?id=Z7t9uVeZ1" target="_blank">Lihat Video Disini</a>
+                </div>               
+                <button class="read-more">Baca Selengkapnya</button>
+            </div>
+            
+            <div class="video-item">
+                <img src="images/dark12.jpeg" alt="thumb">
+                <h3>Penembakan Oleh Kelompok Kriminal</h3>
+                <div class="additional-content" style="display: none;">
+                    <p>Penembakan yang dilakukan oleh kelompok kriminal bersenjata.</p>
+                    <a href="https://videy.co/v?id=qT6GozVv1" target="_blank">Lihat Video Disini</a>
+                </div>               
+                <button class="read-more">Baca Selengkapnya</button>
             </div>
             <div class="video-item">
-                <img src="images/dark20.jpeg" alt="Video 8">
-                <h3>Pembacokan Seorang Pria</h3>
-                <p>Tidak ada deskripsi.</p>
-                <a href="https://videy.co/v?id=bUbgUEmR1" target="_blank">Tonton Sekarang</a>
+                <img src="images/dark11.jpeg" alt="thumb">
+                <h3>Penyiksaan di Penjara Tertutup</h3>
+                <div class="additional-content" style="display: none;">
+                    <p>Seorang tahanan disiksa dengan kejam di dalam penjara yang tertutup.</p>
+                    <a href="https://videy.co/v?id=cLTy3kZP1" target="_blank">Lihat Video Disini</a>
+                </div>               
+                <button class="read-more">Baca Selengkapnya</button>
             </div>
+            
             <div class="video-item">
-                <img src="images/dark19.jpeg" alt="Video 8">
-                <h3>Petugas Keamanan Ditembak Mati</h3>
-                <p>Kronologi di komemtar instagram.</p>
-                <a href="https://videy.co/v?id=VlNFeM1V1" target="_blank">Tonton Sekarang</a>
+                <img src="images/dark10.jpeg" alt="thumb">
+                <h3>Serangan Teroris di Kota</h3>
+                <div class="additional-content" style="display: none;">
+                    <p>Serangan teroris yang mengguncang kota, mengakibatkan banyak korban.</p>
+                    <a href="https://videy.co/v?id=F8tQ32Gl1" target="_blank">Lihat Video Disini</a>
+                </div>               
+                <button class="read-more">Baca Selengkapnya</button>
             </div>
+            
             <div class="video-item">
-                <img src="images/dark18.jpeg" alt="Video 8">
-                <h3>El Siri</h3>
-                <p>Tidak ada deskripsi.</p>
-                <a href="https://videy.co/v?id=6PlYfTCU1" target="_blank">Tonton Sekarang</a>
+                <img src="images/dark9.jpeg" alt="thumb">
+                <h3>Perjuangan Kelompok Rebel</h3>
+                <div class="additional-content" style="display: none;">
+                    <p>Perjuangan keras kelompok rebel melawan tentara pemerintah.</p>
+                    <a href="https://videy.co/v?id=Q0h7h3Ky1" target="_blank">Lihat Video Disini</a>
+                </div>               
+                <button class="read-more">Baca Selengkapnya</button>
             </div>
+            
             <div class="video-item">
-                <img src="images/dark17.jpeg" alt="Video 8">
-                <h3>Pria Muda Ditikam Hingga Tewas</h3>
-                <p>Info yang mimin dapat, korban adalah seorang tunawisma.</p>
-                <a href="https://videy.co/v?id=IIUSCQQz1" target="_blank">Tonton Sekarang</a>
+                <img src="images/dark8.jpeg" alt="thumb">
+                <h3>Kesaksian Korban Perdagangan Manusia</h3>
+                <div class="additional-content" style="display: none;">
+                    <p>Kesaksian mengerikan dari korban perdagangan manusia internasional.</p>
+                    <a href="https://videy.co/v?id=AkcbVxS51" target="_blank">Lihat Video Disini</a>
+                </div>               
+                <button class="read-more">Baca Selengkapnya</button>
             </div>
+            
             <div class="video-item">
-                <img src="images/dark16.jpeg" alt="Video 8">
-                <h3>Sniper Pakystan</h3>
-                <p>Tidak ada deskripsi.</p>
-                <a href="https://dood.town/d/4silof25wwkt" target="_blank">Tonton Sekarang</a>
+                <img src="images/dark7.jpeg" alt="thumb">
+                <h3>Penyiksaan di Penjara Bawah Tanah</h3>
+                <div class="additional-content" style="display: none;">
+                    <p>Seorang tahanan disiksa di penjara bawah tanah yang terisolasi.</p>
+                    <a href="https://videy.co/v?id=H2b5p3wQ1" target="_blank">Lihat Video Disini</a>
+                </div>               
+                <button class="read-more">Baca Selengkapnya</button>
             </div>
+            
             <div class="video-item">
-                <img src="images/dark15.jpeg" alt="Video 8">
-                <h3>FUNKY TOWN V.1</h3>
-                <p>Tidak ada deskripsi.</p>
-                <a href="https://videy.co/v?id=SrqF6tPE" target="_blank">Tonton Sekarang</a>
+                <img src="images/dark6.jpeg" alt="thumb">
+                <h3>Rekaman Penangkapan Brutal</h3>
+                <div class="additional-content" style="display: none;">
+                    <p>Rekaman penangkapan brutal yang dilakukan oleh aparat.</p>
+                    <a href="https://videy.co/v?id=Yf9gL3fT1" target="_blank">Lihat Video Disini</a>
+                </div>               
+                <button class="read-more">Baca Selengkapnya</button>
             </div>
+            
             <div class="video-item">
-                <img src="images/dark14.jpeg" alt="Video 8">
-                <h3>Milisi Pro Indonesia vs Milisi Pro Timor Timur</h3>
-                <p>kutipan dari rekaman kerusuhan antara milisi pro-Indonesia dan milisi pro-Timor Timur di Timor Leste pada tahun 1999.</p>
-                <a href="https://videy.co/v?id=UDZ4gpiB1" target="_blank">Tonton Sekarang</a>
+                <img src="images/dark5.jpeg" alt="thumb">
+                <h3>Perang antar Geng di Kota</h3>
+                <div class="additional-content" style="display: none;">
+                    <p>Perang antar geng yang mengguncang kota dengan kekerasan.</p>
+                    <a href="https://videy.co/v?id=Q3TnV2pM1" target="_blank">Lihat Video Disini</a>
+                </div>               
+                <button class="read-more">Baca Selengkapnya</button>
             </div>
+            
             <div class="video-item">
-                <img src="images/dark13.jpeg" alt="Video 8">
-                <h3>Los Zetas Mengeksekusi Seorang Wanita</h3>
-                <p>Tidak ada deskripsi.</p>
-                <a href="https://videy.co/v?id=Nt5F0QxZ1" target="_blank">Tonton Sekarang</a>
+                <img src="images/dark4.jpeg" alt="thumb">
+                <h3>Pembunuhan di Tengah Jalan Raya</h3>
+                <div class="additional-content" style="display: none;">
+                    <p>Pembunuhan yang terjadi di tengah jalan raya oleh sekelompok orang.</p>
+                    <a href="https://videy.co/v?id=PkO3c9Tz1" target="_blank">Lihat Video Disini</a>
+                </div>               
+                <button class="read-more">Baca Selengkapnya</button>
             </div>
+            
             <div class="video-item">
-                <img src="images/dark12.jpeg" alt="Video 8">
-                <h3>Penusukan di Brazil</h3>
-                <p>Tidak ada deskripsi.</p>
-                <a href="https://pomf2.lain.la/f/38zl1wlz.mp4" target="_blank">Tonton Sekarang</a>
+                <img src="images/dark3.jpeg" alt="thumb">
+                <h3>Penyergapan oleh Pasukan Khusus</h3>
+                <div class="additional-content" style="display: none;">
+                    <p>Penyergapan brutal oleh pasukan khusus terhadap kelompok teroris.</p>
+                    <a href="https://videy.co/v?id=J2Vxq0Cv1" target="_blank">Lihat Video Disini</a>
+                </div>               
+                <button class="read-more">Baca Selengkapnya</button>
             </div>
+            
             <div class="video-item">
-                <img src="images/dark11.jpeg" alt="Video 8">
-                <h3>Pembacokan Orang Madura Tahun 2000</h3>
-                <p>Orang yang terlibat dianggap sebagai provokator yang kebetulan berasal dari suku Madura yang sedang berselisih dengan pemuda Desa Banjar Serasan, Pontianak Timur.</p>
-                <a href="https://videy.co/v?id=qrpQ1vq71" target="_blank">Tonton Sekarang</a>
+                <img src="images/dark2.jpeg" alt="thumb">
+                <h3>Penggerebekan Kartel Narkoba</h3>
+                <div class="additional-content" style="display: none;">
+                    <p>Penggerebekan besar oleh pihak berwajib terhadap kartel narkoba.</p>
+                    <a href="https://videy.co/v?id=Lm5uK4Zh1" target="_blank">Lihat Video Disini</a>
+                </div>               
+                <button class="read-more">Baca Selengkapnya</button>
             </div>
+            
             <div class="video-item">
-                <img src="images/dark10.jpeg" alt="Video 8">
-                <h3>Seorang pria disiram air keras dan dibacok.</h3>
-                <p>Seorang karyawan kios semangka di Pasar Induk Kramat Jati, Jakarta Timur menjadi korban pembunuhan, Senin (8/1/2024) dini hari sekitar pukul 01.00 WIB.</p>
-                <a href="https://videy.co/v?id=IP1E1g601" target="_blank">Tonton Sekarang</a>
-            </div>
-            <div class="video-item">
-                <img src="images/dark9.jpeg" alt="Video 8">
-                <h3>Peringatan Brutal! Kartel Menghabisi Saingannya</h3>
-                <p>SEBAIKNYA JANGAN BERURUSAN DENGAN KELOMPOK KARTEL MANAPUN ! Orang terakhir pasti tahu bagaimana dia akan mati setelah mendengar suara temannya dibantai.</p>
-                <a href="https://videy.co/v?id=q70WCgdt1" target="_blank">Tonton Sekarang</a>
-            </div>
-            <div class="video-item">
-                <img src="images/dark8.jpeg" alt="Video 8">
-                <h3>Seorang pria disiksa hidup-hidup oleh geng kartel</h3>
-                <p>Pada 6 Januari 2024, pembantaian di sabung ayam Petatlán, Guerrero, menewaskan 13 orang dan melukai 22 lainnya. Konflik ini dipicu oleh perseteruan antara kelompok "El Gavilán" dan "El Ruso de Petatlán." Jaksa setempat menyatakan insiden ini adalah serangan terhadap warga sipil, bukan bentrokan antarkelompok kriminal.</p>
-                <a href="https://videy.co/v?id=72o7JsMp1" target="_blank">Tonton Sekarang</a>
-            </div>
-            <div class="video-item">
-                <img src="images/dark7.jpeg" alt="Video 7">
-                <h3>Teroris Nigeria</h3>
-                <p>Tidak ada deskripsi.</p>
-                <a href="https://videy.co/v?id=IkACo30T1" target="_blank">Tonton Sekarang</a>
-            </div>
-            <div class="video-item">
-                <img src="images/dark6.jpeg" alt="Video 6">
-                <h3>Kartel Klasik</h3>
-                <p>Enjoy.</p>
-                <a href="https://videy.co/v?id=qMX4UplY1" target="_blank">Tonton Sekarang</a>
-            </div>
-            <div class="video-item">
-                <img src="images/dark5.jpeg" alt="Video 5">
-                <h3>Hukuman Potong Tangan dengan Parang</h3>
-                <p>Tidak ada informasi lebih lanjut entah apa yang dilakukan oleh pria itu sehingga jari jarinya sampai dipotong, tetapi pria itu senang, dia masih memiliki satu tangan untuk masturbasi haha!</p>
-                <a href="https://videy.co/v?id=yk0uCYx51" target="_blank">Tonton Sekarang</a>
-            </div>
-            <div class="video-item">
-                <img src="images/dark4.jpeg" alt="Video 4">
-                <h3>Pria Tunawisma Dipukul & Ditusuk</h3>
-                <p>Tukang Reparasi Mobil Alias ​​Pirang Secara Brutal Memukul dan Menusuk Seorang Pria Tunawisma, di depan Rumah Sakit Rio Negro, Centro.</p>
-                <a href="https://videy.co/v?id=ZHowoZPh1" target="_blanm">Tonton Sekarang</a>
-            </div>
-            <div class="video-item">
-                <img src="images/dark3.jpeg" alt="Video 3">
-                <h3>Tim Forensik Mencabut Kapak dari Kepala</h3>
-                <p>Seorang pria berinisial IS membunuh tetangganya berinisial JFA (58) dengan sebilah kapak. Peristiwa itu terjadi di Desa Sidorukun, Kecamatan Pangkatan, Kabupaten Labuhanbatu, Kamis (7/11/24).</p>
-                <a href="https://videy.co/v?id=XjrGtq8X1" target="_blank">Tonton Sekarang</a>
-            </div>
-            <div class="video-item">
-                <img src="images/dark2.jpeg" alt="Video 2">
-                <h3>Penembakan Orang Tua</h3>
-                <p>Tidak ada deskripsi.</p>
-                <a href="https://videy.co/v?id=QrWgocjZ1" target="_blank">Tonton Sekarang</a>
-            </div>
-            <div class="video-item">
-                <img src="images/psy1.jpeg" alt="Video 1">
-                <h3>Kartel CJNG vs Kartel Sinaloa</h3>
-                <p>Anggota kartel C*N* terlihat sedang memakan kelompok musuhnya yaitu kartel Sin*l*a.</p>
-                <a href="https://videy.co/v?id=VRdyi0h91" target="_blank">Tonton Sekarang</a>
-            </div>
-            <!-- Tambahkan lebih banyak video item sesuai kebutuhan -->
+                <img src="images/psy1.jpeg" alt="thumb">
+                <h3>Eksekusi Terhadap Pengkhianat</h3>
+                <div class="additional-content" style="display: none;">
+                    <p>Eksekusi tragis terhadap seseorang yang dianggap pengkhianat oleh kelompok tertentu.</p>
+                    <a href="https://videy.co/v?id=SmI2YfZd1" target="_blank">Lihat Video Disini</a>
+                </div>               
+                <button class="read-more">Baca Selengkapnya</button>
+            </div>                                                
         </section>
     </main>
 
@@ -457,6 +615,21 @@
                 nav.classList.remove('active');
                 hamburger.classList.remove('active');
             }
+        });
+    </script>
+    <script>
+        document.querySelectorAll('.read-more').forEach(button => {
+        button.addEventListener('click', function() {
+            const additionalContent = this.previousElementSibling; // Konten tambahan (div)
+        // Toggle tampilan konten tambahan
+            if (additionalContent.style.display === 'none' || additionalContent.style.display === '') {
+                additionalContent.style.display = 'block';
+                this.textContent = 'Sembunyikan'; // Ubah teks tombol
+                } else {
+                    additionalContent.style.display = 'none';
+                    this.textContent = 'Baca Selengkapnya'; // Ubah teks tombol
+                }
+            });
         });
     </script>
     <script type="text/javascript" src="https://storage.sociabuzz.com/storage/js/main/buttononwebsite/index.min.js"></script><script>sbBoW.draw("goreplix","RHVrdW5nIGthbWk","position-bottom-right","#ff0000","#FFFFFF")</script>
