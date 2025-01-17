@@ -210,112 +210,6 @@
             margin-top: 20px;
         }
 
-        /* Styling untuk pop-up */
-        #age-gate-modal {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.8);
-            color: white;
-            text-align: center;
-            padding: 20px;
-            z-index: 1000;
-            overflow: auto;
-        }
-
-        #age-gate-modal .modal-content {
-            background-color: #121212;
-            padding: 40px;
-            border-radius: 10px;
-            max-width: 840px;
-            margin: auto;
-            box-sizing: border-box;
-            text-align: center;
-        }
-
-        #age-gate-modal h2 {
-            font-size: 40px;
-        }
-
-        #age-gate-modal p {
-            font-size: 16px;
-            margin: 20px 0;
-        }
-
-        #age-gate-modal a {
-            color: #e82e34;
-        }
-
-        .age-gate-button {
-            background-color: #e82e34;
-            color: white;
-            padding: 15px 30px;
-            font-size: 18px;
-            border: none;
-            cursor: pointer;
-            border-radius: 5px;
-            margin: 10px;
-            display: inline-block;
-            width: 200px;  /* Menambahkan lebar agar tombol tetap besar */
-        }
-
-        .age-gate-button:hover {
-            background-color: #c71d2b;
-        }
-
-        .age-gate-fail-button {
-            background-color: #595959;
-        }
-
-        /* Responsif untuk perangkat kecil */
-        @media (max-width: 768px) {
-        #age-gate-modal h2 {
-            font-size: 32px; /* Mengurangi ukuran font pada perangkat lebih kecil */
-        }
-
-        #age-gate-modal p {
-            font-size: 14px;
-            margin: 15px 0;
-        }
-
-        .age-gate-button {
-            padding: 12px 25px;
-            font-size: 16px;
-            width: 100%;  /* Tombol lebar penuh pada perangkat kecil */
-        }
-
-        .age-gate-fail-button {
-            background-color: #595959;
-            width: 100%;
-        }
-    }
-
-        /* Responsif untuk perangkat yang lebih kecil dari 480px */
-        @media (max-width: 480px) {
-        #age-gate-modal h2 {
-            font-size: 28px; /* Ukuran font lebih kecil lagi */
-        }
-
-        #age-gate-modal p {
-            font-size: 12px;
-            margin: 10px 0;
-        }
-
-        .age-gate-button {
-            padding: 10px 20px;
-            font-size: 14px;
-            width: 100%; /* Tombol lebar penuh */
-            margin: 10px 0;
-        }
-
-        .age-gate-fail-button {
-            width: 100%;
-        }
-    }
-
         /* Responsiveness */
         @media (max-width: 768px) {
         nav {
@@ -387,22 +281,6 @@
         </nav>
     </header> 
     
-  <!-- Modal Pop-up -->
-  <div id="age-gate-modal">
-    <div class="modal-content">
-      <h2>Goreplix tidak untuk semua orang...</h2>
-      <p>Dengan mengakses Goreplix, Anda mengonfirmasi bahwa Anda telah membaca dan menyetujui <a href="./tou">Syarat dan Ketentuan Penggunaan</a>.</p>
-      <p>Anda mengakui bahwa Anda telah mencapai usia dewasa, minimal 18 tahun, atau lebih sesuai dengan hukum yang berlaku di negara tempat Anda berada atau kewarganegaraan Anda.</p>
-      <p>Anda mengakui bahwa situs ini hanya untuk tujuan pendidikan dan jurnalisme investigatif, dan bukan untuk masyarakat umum.</p>
-      <p>Anda setuju bahwa Anda tidak memiliki gangguan mental atau parafilia seksual yang tidak dapat Anda kendalikan.</p>
-      <p>Anda setuju untuk mengakses Goreplix hanya di tempat yang aman dan pribadi, menggunakan perangkat yang hanya Anda kontrol, dan tidak dapat diakses oleh orang lain, terutama anak di bawah umur.</p>
-      <p>Anda mengakui bahwa konten di Goreplix tidak dijamin kebenarannya, dan dapat berisi pendapat yang tidak sesuai dengan pandangan Goreplix. Kami tidak bertanggung jawab atas akurasi atau kualitas konten tersebut.</p>
-      <p><strong>Jika Anda tidak setuju dengan syarat ini, harap tinggalkan situs ini segera.</strong></p>
-      <button id="age-gate-pass" class="age-gate-button">Masuk</button>
-      <button id="age-gate-fail" class="age-gate-button age-gate-fail-button">Keluar</button>
-    </div>
-  </div>
-
     <div class="disclaimer">
         DISCLAIMER: Konten yang ditampilkan di situs ini bersumber dari berbagai tempat di internet dan media sosial. Jika Anda menemukan konten yang menurut Anda melanggar privasi, hak cipta, atau ingin dihapus karena alasan lain, jangan ragu untuk <a href="https://instagram.com/goreplix" style="color: blue;">MENGHUBUNGI KAMI.</a> Kami akan segera menindaklanjuti permintaan Anda.
     </div>
@@ -457,46 +335,25 @@
     </footer>
 
     <script>
-        // Menampilkan modal ketika halaman dimuat
-        window.onload = function() {
-            var ageGateModal = document.getElementById('age-gate-modal');
-            ageGateModal.style.display = 'block';
-        };
+    // Fungsi toggle menu navigasi
+    function toggleNav(element) {
+    const nav = document.getElementById('nav');
 
-        // Menangani klik pada tombol "Masuk"
-        document.getElementById('age-gate-pass').onclick = function() {
-        // Menyembunyikan modal
-        document.getElementById('age-gate-modal').style.display = 'none';
-        // Menyimpan bahwa pengguna telah diterima untuk sesi ini
-        localStorage.setItem('ageVerified', 'true');
-        };
+    // Toggle kelas aktif pada elemen nav dan tombol hamburger
+    nav.classList.toggle('active');
+    element.classList.toggle('active');
+    }
 
-        // Menangani klik pada tombol "Keluar"
-        document.getElementById('age-gate-fail').onclick = function() {
-        // Menutup jendela/tab
-        window.location.href = "https://www.google.com/search?q=upin+ipin&oq=upin"; // Ganti dengan halaman lain jika perlu
-        };
+    // Menutup menu navigasi jika pengguna mengklik di luar menu
+    document.addEventListener('click', function (event) {
+    const nav = document.getElementById('nav');
+    const hamburger = document.getElementById('hamburger');
 
-        // Memeriksa apakah pengguna sudah melewati age gate
-        if (localStorage.getItem('ageVerified') === 'true') {
-            document.getElementById('age-gate-modal').style.display = 'none';
-        }
-
-        function toggleNav(element) {
-            const nav = document.getElementById('nav');
-            nav.classList.toggle('active'); /* Toggle the active class */
-            element.classList.toggle('active'); /* Toggle the hamburger button state */
-        }
-
-        // Close the nav when clicking outside of it
-        document.addEventListener('click', function(event) {
-            const nav = document.getElementById('nav');
-            const hamburger = document.getElementById('hamburger');
-            if (!nav.contains(event.target) && !hamburger.contains(event.target)) {
-                nav.classList.remove('active');
-                hamburger.classList.remove('active');
-            }
-        });
-    </script>
+    if (!nav.contains(event.target) && !hamburger.contains(event.target)) {
+        nav.classList.remove('active');
+        hamburger.classList.remove('active');
+     }
+    });
+    </script> 
 </body>
 </html>
