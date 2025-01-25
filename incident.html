@@ -41,6 +41,99 @@
             height: auto;
             margin-left: -15px;
         }   
+        /* Styling untuk form pencarian */
+        .search-form {
+            position: relative;
+            max-width: 100%;
+            margin: 20px 15px;
+            font-family: 'Arial', sans-serif;
+        }
+
+        #search {
+            width: 100%;
+            padding: 12px 20px;
+            border: 2px solid red;
+            border-radius: 5px;
+            font-size: 16px;
+            outline: none;
+            transition: border-color 0.3s ease;
+        }
+
+        #search:focus {
+            border-color: rgb(105, 54, 54);
+        }
+
+        /* Kotak saran */
+        .suggestions-box {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            width: 117%;
+            background-color: #fff;
+            border: 2px solid #ccc;
+            border-radius: 5px;
+            max-height: 250px;
+            overflow-y: auto;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+            z-index: 9999;
+            display: none;
+        }
+
+        .suggestions-box div {
+            padding: 10px;
+            font-size: 16px;
+            color: black;
+            cursor: pointer;
+            transition: background-color 0.3s ease, color 0.3s ease;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .suggestions-box div:last-child {
+            border-bottom: none;
+        }
+
+        .suggestions-box div:hover {
+            background-color: #492424;
+            color: #ffffff;
+        }
+
+        /* Menampilkan kotak saran jika ada input */
+        .suggestions-box.show {
+            display: block;
+        }
+
+        /* Responsif untuk tampilan mobile */
+        @media (max-width: 768px) {
+        .search-form {
+            max-width: 100%;
+            margin: 15px;
+        }
+
+        #search {
+            font-size: 14px;
+            padding: 10px 15px;
+        }
+
+        .suggestions-box {
+            max-height: 200px; /* Lebih pendek untuk perangkat kecil */
+            width: 114%;
+            font-size: 14px;
+        }
+    }
+
+        /* Responsif untuk tampilan sangat kecil (misalnya ponsel dengan layar kecil) */
+        @media (max-width: 480px) {
+        #search {
+            font-size: 12px;
+            padding: 8px 12px;
+        }
+
+        .suggestions-box {
+            max-height: 150px; /* Lebih kecil lagi untuk layar sangat kecil */
+            width: 114%;
+            font-size: 12px;
+        }
+    }
         nav {
             display: flex;
             text-align: center;
@@ -262,6 +355,12 @@
             <div class="bar"></div>
             <div class="bar"></div>
         </div>
+
+        <form action="/search" method="get" class="search-form">
+            <input type="text" id="search" name="query" placeholder="Cari judul video..." onkeyup="searchSuggestions()" autocomplete="off">
+            <div id="suggestions-box" class="suggestions-box"></div>
+          </form>
+
         <nav id="nav">
             <a href="https://goreplix.site">Beranda</a>
             <a href="./darkness">Darkness</a>
@@ -444,6 +543,55 @@
              &copy; 2024 Goreplix. Semua hak dilindungi. | <a href="./tou" style="color: red;">Terms of Use</a>
         </div>
     </footer>
+
+    <script>
+        function searchSuggestions() {
+            const input = document.getElementById('search').value;
+            const suggestionsBox = document.getElementById('suggestions-box');
+      
+        // Kosongkan kotak saran terlebih dahulu
+        suggestionsBox.innerHTML = '';
+        suggestionsBox.classList.remove('show');
+    
+        if (input.length === 0) {
+            return;
+        }
+    
+        // Ambil semua judul dari <h3> di dalam .video-item
+        const videoItems = document.querySelectorAll('.video-item h3');
+        const filteredSuggestions = [];
+    
+        videoItems.forEach(item => {
+            if (item.textContent.toLowerCase().includes(input.toLowerCase())) {
+                filteredSuggestions.push(item.textContent);
+            }
+        });
+    
+        // Jika ada hasil saran, tampilkan kotak saran
+        if (filteredSuggestions.length > 0) {
+            suggestionsBox.classList.add('show');
+        }
+    
+        // Tampilkan hasil saran
+        filteredSuggestions.forEach(suggestion => {
+            const suggestionElement = document.createElement('div');
+            suggestionElement.textContent = suggestion;
+            suggestionElement.onclick = () => {
+                document.getElementById('search').value = suggestion;
+                suggestionsBox.innerHTML = '';
+                suggestionsBox.classList.remove('show');
+    
+            // Cari elemen video yang relevan dan scroll ke sana
+            const targetElement = [...document.querySelectorAll('.video-item h3')].find(item => item.textContent === suggestion);
+                if (targetElement) {
+                    const videoItem = targetElement.closest('.video-item');
+                    videoItem.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                }
+            };
+            suggestionsBox.appendChild(suggestionElement);
+            });
+        }
+        </script>
 
     <script>
         function toggleNav(element) {
